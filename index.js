@@ -14,7 +14,7 @@ module.exports = function (stylecow) {
 };
 
 function fixer (declaration) {
-	var fn = declaration.search('Function', ['rgba', 'hsla']);
+	var fn = declaration.search({type: 'Function', name: ['rgba', 'hsla']});
 
 	if (fn.length === 1) {
 		var rgba = color.toRGBA(fn[0]);
@@ -24,7 +24,7 @@ function fixer (declaration) {
 		} else {
 			var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
 
-			declaration.ancestor('Rule').addOldMsFilter('progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
+			declaration.ancestor({type: 'Rule'}).addOldMsFilter('progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
 		}
 	}
 }
