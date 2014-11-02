@@ -24,7 +24,7 @@ function fixer (declaration) {
 		} else {
 			var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
 
-			declaration.ancestor({type: 'Rule'}).addOldMsFilter('progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
+			declaration.parent({type: 'Rule'}).addOldMsFilter('progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
 		}
 	}
 }
