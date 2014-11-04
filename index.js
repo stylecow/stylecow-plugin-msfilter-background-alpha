@@ -20,7 +20,7 @@ function fixer (declaration) {
 		var rgba = color.toRGBA(fn[0]);
 
 		if (rgba[3] === 1) {
-			fn[0].replaceWith('#' + color.RGBA_HEX(rgba));
+			fn[0].replaceWith(new stylecow.Keyword('#' + color.RGBA_HEX(rgba)));
 		} else {
 			var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
 
