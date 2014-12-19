@@ -11,20 +11,25 @@ module.exports = function (stylecow) {
 			"background-color": fixer
 		}
 	});
-};
 
-function fixer (declaration) {
-	var fn = declaration.search({type: 'Function', name: ['rgba', 'hsla']});
+	function fixer (declaration) {
+		var fn = declaration.searchFirst({
+			type: 'Function',
+			name: ['rgba', 'hsla']
+		});
 
-	if (fn.length === 1) {
-		var rgba = color.toRGBA(fn[0]);
+		if (fn) {
+			var rgba = color.toRGBA(fn);
 
-		if (rgba[3] === 1) {
-			fn[0].replaceWith(new stylecow.Keyword('#' + color.RGBA_HEX(rgba)));
-		} else {
+			if (rgba[3] === 1) {
+				return fn.replaceWith(stylecow.Keyword.createFromString('#' + color.RGBA_HEX(rgba)));
+			}
+
 			var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
+			var filter = 'progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")';
+			var block = declaration.parent({type: 'Block' });
 
-			declaration.parent({type: 'Rule'}).addOldMsFilter('progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
+			stylecow.utils.addMsFilter(block, filter);
 		}
 	}
-}
+};
