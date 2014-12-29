@@ -25,9 +25,8 @@ module.exports = function (stylecow) {
 
 				var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
 				var filter = 'progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")';
-				var block = declaration.parent({type: 'Block' });
 
-				stylecow.utils.addMsFilter(block, filter);
+				stylecow.utils.addMsFilter(declaration.parent('Block'), filter);
 			}
 		}
 	});
