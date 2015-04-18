@@ -1,0 +1,15 @@
+div {
+	background: rgba(0, 0, 0, 0.5);
+}
+div {
+	background: rgba(0, 0, 0, 1);
+}
+div {
+	background-color: rgba(0, 0, 0, 1);
+}
+div {
+	background-color: hsla(100, 50, 50, 0.5);
+}
+div {
+	background-color: hsla(100, 50, 50, 1);
+}

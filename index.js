@@ -11,7 +11,7 @@ module.exports = function (stylecow) {
 			name: ['background', 'background-color']
 		},
 		fn: function (declaration) {
-			var fn = declaration.searchFirst({
+			var fn = declaration.get({
 				type: 'Function',
 				name: ['rgba', 'hsla']
 			});
@@ -20,13 +20,12 @@ module.exports = function (stylecow) {
 				var rgba = color.toRGBA(fn);
 
 				if (rgba[3] === 1) {
-					return fn.replaceWith(stylecow.Keyword.createFromString('#' + color.RGBA_HEX(rgba)));
+					return fn.replaceWith(stylecow.parse('#' + color.RGBA_HEX(rgba), 'Hex'));
 				}
 
 				var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
-				var filter = 'progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")';
 
-				stylecow.utils.addMsFilter(declaration.parent('Block'), filter);
+				stylecow.utils.addMsFilter(declaration.getParent('Block'), 'progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
 			}
 		}
 	});

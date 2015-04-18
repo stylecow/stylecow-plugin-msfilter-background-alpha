@@ -1,0 +1,17 @@
+div {
+	background: rgba(0, 0, 0, 0.5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr=#80000000,endColorStr=#80000000)";
+}
+div {
+	background: #000000;
+}
+div {
+	background-color: #000000;
+}
+div {
+	background-color: hsla(100, 50, 50, 0.5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr=#806ABF40,endColorStr=#806ABF40)";
+}
+div {
+	background-color: #6ABF40;
+}

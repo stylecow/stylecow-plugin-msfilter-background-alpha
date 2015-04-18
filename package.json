@@ -1,7 +1,7 @@
 {
 	"name": "stylecow-plugin-msfilter-background-alpha",
 	"description": "Stylecow plugin to add ms filters emulating the rgba/hsla colors in backgrounds in explorer < 9 using ms filters.",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"author": "Oscar Otero <oom@oscarotero.com>",
 	"homepage": "https://github.com/stylecow/stylecow-plugin-msfilter-background-alpha",
 	"bugs": "https://github.com/stylecow/stylecow-plugin-msfilter-background-alpha/issues",
@@ -12,6 +12,12 @@
 	"main": "index.js",
 	"dependencies": {
 		"stylecow-color": "2.*"
+	},
+	"devDependencies": {
+		"stylecow-parser": "2.*"
+	},
+	"scripts": {
+		"test": "mocha tests/cases.js"
 	},
 	"license": "MIT"
 }
