@@ -39,7 +39,7 @@
                           "children": [
                             {
                               "class": "Number",
-                              "name": null
+                              "name": 0
                             }
                           ]
                         },
@@ -48,7 +48,7 @@
                           "children": [
                             {
                               "class": "Number",
-                              "name": null
+                              "name": 0
                             }
                           ]
                         },
@@ -57,7 +57,7 @@
                           "children": [
                             {
                               "class": "Number",
-                              "name": null
+                              "name": 0
                             }
                           ]
                         },
