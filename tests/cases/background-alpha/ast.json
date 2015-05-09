@@ -222,8 +222,14 @@
                           "class": "Value",
                           "children": [
                             {
-                              "class": "Number",
-                              "name": 50
+                              "class": "Unit",
+                              "name": "%",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 50
+                                }
+                              ]
                             }
                           ]
                         },
@@ -231,8 +237,14 @@
                           "class": "Value",
                           "children": [
                             {
-                              "class": "Number",
-                              "name": 50
+                              "class": "Unit",
+                              "name": "%",
+                              "children": [
+                                {
+                                  "class": "Number",
+                                  "name": 50
+                                }
+                              ]
                             }
                           ]
                         },

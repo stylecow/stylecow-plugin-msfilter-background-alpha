@@ -1,4 +1,4 @@
-var color = require('stylecow-color');
+var Color = require('color');
 
 module.exports = function (stylecow) {
 
@@ -17,13 +17,14 @@ module.exports = function (stylecow) {
 			});
 
 			if (fn) {
-				var rgba = color.toRGBA(fn);
+				var color = Color(fn.toString());
+				var hex = color.hexString();
 
-				if (rgba[3] === 1) {
-					return fn.replaceWith(stylecow.parse('#' + color.RGBA_HEX(rgba), 'Hex'));
+				if (color.alpha() == 1) {
+					return fn.replaceWith(stylecow.parse(hex, 'Hex'));
 				}
 
-				var hex = '#' + Math.round(255 * rgba[3]).toString(16) + color.RGBA_HEX(rgba);
+				hex = hex.replace('#', '#' + Math.round(255 * color.alpha()).toString(16));
 
 				stylecow.utils.addMsFilter(declaration.getParent('Block'), 'progid:DXImageTransform.Microsoft.gradient(startColorStr="' + hex + '", endColorStr="' + hex + '")');
 			}
